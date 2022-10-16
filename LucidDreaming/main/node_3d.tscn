@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://2djgs2blwpd3"]
+[gd_scene load_steps=13 format=3 uid="uid://kt1bca0mqp7v"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_lfbm5"]
 [ext_resource type="Shader" path="res://vingnette.gdshader" id="2_qfyfc"]
+[ext_resource type="PackedScene" uid="uid://cm3j2njqb560l" path="res://arms/rence.tscn" id="3_mp64v"]
+[ext_resource type="PackedScene" uid="uid://hgvv88y834qa" path="res://arms/fak.tscn" id="4_4kltm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qle2l"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -81,3 +83,9 @@ material = SubResource("ShaderMaterial_0kfux")
 offset_top = -3.0
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="Player_Arms" parent="CharacterBody3d/neck/Camera3d" instance=ExtResource("3_mp64v")]
+transform = Transform3D(0.000677565, 0.00252876, 0.299989, 0.0776428, 0.289767, -0.00261796, -0.289778, 0.0776457, -1.31129e-08, 0, -0.13, 0.15)
+
+[node name="fak" parent="CharacterBody3d/neck/Camera3d" instance=ExtResource("4_4kltm")]
+transform = Transform3D(-1.26666e-08, 3.394e-09, 0.3, 0.0776457, 0.289778, 0, -0.289778, 0.0776457, -1.31134e-08, 0, -0.13, 0.1)

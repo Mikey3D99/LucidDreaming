@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm3j2njqb560l"]
+
+[ext_resource type="PackedScene" uid="uid://b5hpjopjsa41q" path="res://arms/Player_Arms.glb" id="1_pjpm1"]
+
+[node name="Player_Arms" instance=ExtResource("1_pjpm1")]
+
+[node name="Skeleton3D" parent="Armature001" index="0"]
+bones/0/rotation = Quaternion(0, 0.321, 1.224, 0.707)
+bones/1/rotation = Quaternion(0.121, 0.138, 0.17, 1)
+bones/2/rotation = Quaternion(0.582, -0.761, 0.254, 1)
+bones/3/rotation = Quaternion(-0.134, 0.128, -0.044, 0.99)
+bones/22/rotation = Quaternion(0.113, 0, -1.338, 0.687)
+bones/23/rotation = Quaternion(0.485, 0.036, -0.084, 0.866)
+bones/24/rotation = Quaternion(0.392, 0.299, -0.023, 1.083)

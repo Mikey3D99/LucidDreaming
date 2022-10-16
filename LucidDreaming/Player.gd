@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 7
 const JUMP_VELOCITY = 4.5
 const SNEAK = SPEED / 1.5
@@ -11,7 +10,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $neck
 @onready var camera := $neck/Camera3d
 @onready var vignette := $neck/Camera3d/Sneak/CanvasLayer/Vignette
+@onready var fak := $neck/Camera3d/fak
+@onready var arms := $neck/Camera3d/Player_Arms
 
+
+# _unhandled_input was blocking mouse movement when sneaking
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,6 +32,8 @@ func set_vignette(visible_on_off) -> void:
 
 func _physics_process(delta):
 	#vignette turned off when started
+	fak.visible = false
+	arms.visible = true
 	set_vignette(false)
 	
 	# Add the gravity.
@@ -49,6 +54,9 @@ func _physics_process(delta):
 	
 	if direction:
 		
+		if Input.is_action_pressed("flipoff"):
+			fak.visible = true
+			arms.visible = false
 		# Handle Sneak.
 		if Input.is_action_pressed("sneak") and is_on_floor():
 			# turn vignette on
