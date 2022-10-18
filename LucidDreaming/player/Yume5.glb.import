@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnkqr4kxdui2p"
-path="res://.godot/imported/Yume2.0.glb-a58640e8002f9e99b147c9a1b9e53f3a.scn"
+uid="uid://cem4prrdojpoe"
+path="res://.godot/imported/Yume5.glb-3d533f49cd091d987bade3bbc82c35e4.scn"
 
 [deps]
 
-source_file="res://player/Yume2.0.glb"
-dest_files=["res://.godot/imported/Yume2.0.glb-a58640e8002f9e99b147c9a1b9e53f3a.scn"]
+source_file="res://player/Yume5.glb"
+dest_files=["res://.godot/imported/Yume5.glb-3d533f49cd091d987bade3bbc82c35e4.scn"]
 
 [params]
 

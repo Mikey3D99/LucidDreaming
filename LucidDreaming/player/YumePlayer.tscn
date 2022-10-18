@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhoom7aej6loc"]
+
+[ext_resource type="Script" path="res://player/YumePlayer.gd" id="1_o26v8"]
+[ext_resource type="PackedScene" uid="uid://cem4prrdojpoe" path="res://player/Yume5.glb" id="1_qyb8e"]
+[ext_resource type="Shader" path="res://vingnette.gdshader" id="3_p8u53"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sqoj8"]
+height = 1.82573
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0u3t"]
+shader = ExtResource("3_p8u53")
+shader_parameter/vignette_intensity = null
+shader_parameter/vignette_opacity = null
+shader_parameter/vignette_rgb = null
+
+[node name="YumePlayer" type="CharacterBody3D"]
+script = ExtResource("1_o26v8")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00417185, 0.899864, 0)
+shape = SubResource("CapsuleShape3D_sqoj8")
+
+[node name="neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65021, 0)
+
+[node name="Camera3d" type="Camera3D" parent="neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0970457)
+fov = 80.319
+
+[node name="Sneak" type="Control" parent="neck/Camera3d"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="neck/Camera3d/Sneak"]
+
+[node name="Vignette" type="ColorRect" parent="neck/Camera3d/Sneak/CanvasLayer"]
+material = SubResource("ShaderMaterial_m0u3t")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Yume5" parent="neck" instance=ExtResource("1_qyb8e")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.65021, 0)
+
+[node name="Skeleton3D" parent="neck/Yume5/Armature" index="0"]
+bones/0/position = Vector3(-7.72729e-06, 1.55432, -104.275)
+bones/13/rotation = Quaternion(3.55245e-08, 9.7986e-09, -0.607042, 0.79467)
+bones/14/position = Vector3(27.8415, -9.16695e-05, 3.85639e-05)
+bones/15/position = Vector3(16.0611, -1.68356e-05, 2.18097)
+bones/15/rotation = Quaternion(0.000225625, -4.47037e-08, -3.98228e-12, 1)
+bones/16/rotation = Quaternion(-9.02371e-05, -8.05516e-05, 7.58055e-05, 1)
+bones/21/position = Vector3(9.1093, -0.517082, 2.26007)
+bones/22/position = Vector3(3.67642, -9.67755e-06, 2.93413e-05)
+bones/27/position = Vector3(3.69824, -2.98652e-06, 1.82409e-05)
+bones/30/position = Vector3(9.31766e-06, 2.83391, -2.66358e-07)
+bones/32/position = Vector3(3.15404, -1.49549e-05, 9.64478e-06)
+bones/34/position = Vector3(2.64748, -4.57864e-05, -2.0396e-07)
+bones/39/position = Vector3(1.9757, 1.74511e-05, -4.39715e-05)
+bones/42/position = Vector3(-10.5928, -0.524797, -2.2321)
+bones/42/rotation = Quaternion(1.18058e-08, 8.33528e-09, 0.610166, 0.792274)
+bones/43/position = Vector3(-27.8415, -3.06356e-05, 1.33203e-05)
+bones/44/rotation = Quaternion(0.00023261, 1.8097e-06, -4.06356e-10, 1)
+bones/45/rotation = Quaternion(7.44849e-08, -1.38889e-05, -1.16711e-08, 1)
+bones/46/position = Vector3(-3.60004, 4.20362e-05, 5.05233e-05)
+bones/46/rotation = Quaternion(-1.48998e-08, 1.38591e-05, 1.54025e-08, 1)
+bones/47/position = Vector3(-2.11422, 1.74621e-05, 1.48434e-05)
+bones/48/position = Vector3(-1.97569, -1.36802e-05, -9.63919e-07)
+bones/51/position = Vector3(-3.15403, 1.87375e-05, 4.86085e-05)
+bones/57/rotation = Quaternion(5.95669e-08, -1.76734e-05, -4.80439e-08, 1)
+bones/61/position = Vector3(-3.67641, 1.69251e-05, 3.22815e-05)
+bones/62/position = Vector3(-2.88307, -4.78065e-05, 4.05451e-05)
+bones/63/position = Vector3(-2.39272, 3.22495e-05, 2.83206e-05)
+bones/64/position = Vector3(-6.53772e-06, 2.39271, -1.86265e-08)
+bones/65/rotation = Quaternion(-9.30314e-05, 8.29705e-05, -7.82057e-05, 1)
+bones/67/rotation = Quaternion(2.98014e-08, -1.07147e-05, -1.06342e-05, 1)
+bones/68/position = Vector3(-1.95458, -1.12846, 1.12851)
+bones/70/rotation = Quaternion(-0.000702214, 2.2164e-08, -7.13521e-07, 1)
+bones/71/rotation = Quaternion(0.00140227, 3.32684e-10, 1.33097e-10, 0.999999)
+bones/72/rotation = Quaternion(-0.000700056, -6.31392e-10, 1.06057e-08, 1)
+bones/76/rotation = Quaternion(-0.000673677, 2.21587e-08, -7.13291e-07, 1)
+bones/77/rotation = Quaternion(0.00134611, -1.45303e-08, -1.74754e-09, 0.999999)
+bones/78/rotation = Quaternion(-0.000672438, -6.84627e-10, 1.13238e-08, 1)
+
+[editable path="neck/Yume5"]

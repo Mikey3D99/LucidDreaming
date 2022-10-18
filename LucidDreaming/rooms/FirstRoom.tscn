@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://qffi6h7m8b8c"]
 
-[ext_resource type="PackedScene" uid="uid://bscsd4vvh400" path="res://player/yume.tscn" id="1_ifn6s"]
+[ext_resource type="PackedScene" uid="uid://dmhl5006mg4o6" path="res://player/yume.tscn" id="1_ifn6s"]
 [ext_resource type="PackedScene" uid="uid://bnhgur5p1e2oi" path="res://assets/walls/simple_wall/simple_wall.tscn" id="2_bh8j0"]
 [ext_resource type="PackedScene" uid="uid://37mllvaxr7c8" path="res://assets/walls/bedroom_bed_wall/bed_wall.tscn" id="3_15oem"]
 

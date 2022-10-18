@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bscsd4vvh400"]
+[gd_scene load_steps=8 format=3 uid="uid://dmhl5006mg4o6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ki5dp"]
 [ext_resource type="Shader" path="res://vingnette.gdshader" id="2_j4n5q"]
