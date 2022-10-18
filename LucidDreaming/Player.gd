@@ -31,6 +31,10 @@ func set_vignette(visible_on_off) -> void:
 	vignette.visible = visible_on_off
 
 func _physics_process(delta):
+	#fps check
+	#print(Engine.get_frames_per_second())    
+	
+	
 	#vignette turned off when started
 	fak.visible = false
 	arms.visible = true
