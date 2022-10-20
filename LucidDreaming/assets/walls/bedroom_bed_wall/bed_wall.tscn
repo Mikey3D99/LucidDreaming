@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c5j56l8paq2go" path="res://assets/walls/simple_wall/parts/wooden_plank_short.glb" id="2_terp6"]
 
 [node name="bed_wall" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="simple_wall2" parent="." instance=ExtResource("1_flm3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0287204)

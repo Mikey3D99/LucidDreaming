@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvxn5fx3dk662" path="res://assets/walls/simple_wall/parts/cloth_wall_simple.glb" id="3_mu0l2"]
 
 [node name="simple_wall" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="wooden_plank_short" parent="." instance=ExtResource("2_8ey68")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.145328, 0)
@@ -19,4 +20,4 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 8.43298, 0.00259435)
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 4.13483, 1.94084)
 
 [node name="cloth_wall_simple" parent="." instance=ExtResource("3_mu0l2")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.174026, 4.05264, 0)
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -0.174026, 4.05264, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhoom7aej6loc"]
+[gd_scene load_steps=6 format=3 uid="uid://dc5mc5pmj0c83"]
 
 [ext_resource type="Script" path="res://player/YumePlayer.gd" id="1_o26v8"]
 [ext_resource type="PackedScene" uid="uid://cem4prrdojpoe" path="res://player/Yume5.glb" id="1_qyb8e"]
@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape3D_sqoj8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65021, 0)
 
 [node name="Camera3d" type="Camera3D" parent="neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0970457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.129693)
 fov = 80.319
 
 [node name="Sneak" type="Control" parent="neck/Camera3d"]

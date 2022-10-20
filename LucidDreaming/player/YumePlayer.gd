@@ -4,7 +4,7 @@ const SPEED = 7
 const JUMP_VELOCITY = 4.5
 const SNEAK = SPEED / 1.5
 @export var mouse_sensitivity = 0.01
-@export var camera_up_max = 80
+@export var camera_up_max = 55
 @export var camera_down_max = -60
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,7 +32,7 @@ func set_vignette(visible_on_off) -> void:
 
 func _physics_process(delta):
 	#fps check
-	#print(Engine.get_frames_per_second())    
+	print(Engine.get_frames_per_second())    
 	
 	#vignette turned off when started
 	set_vignette(false)
