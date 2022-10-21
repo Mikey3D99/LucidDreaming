@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 7
-const JUMP_VELOCITY = 4.5
+const SPEED = 10
+const JUMP_VELOCITY = 16
 const SNEAK = SPEED / 1.5
 @export var mouse_sensitivity = 0.01
 @export var camera_up_max = 55
@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $neck
 @onready var camera := $neck/Camera3d
 @onready var vignette := $neck/Camera3d/Sneak/CanvasLayer/Vignette
+@onready var yume_animations := $neck/yumejump2/AnimationPlayer
 
 
 # _unhandled_input was blocking mouse movement when sneaking
@@ -43,6 +44,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		yume_animations.play("YumeJump")
 		velocity.y = JUMP_VELOCITY
 		
 	# Get the input direction and handle the movement/deceleration.
