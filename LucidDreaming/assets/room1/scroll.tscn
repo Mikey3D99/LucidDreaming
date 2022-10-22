@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fnqdom7t1i04"]
+
+[ext_resource type="PackedScene" uid="uid://bxkga14mf0e1b" path="res://assets/room1/models/scroll.glb" id="1_owrhn"]
+
+[node name="scroll" instance=ExtResource("1_owrhn")]
+
+[node name="scroll2" parent="." index="0"]
+transform = Transform3D(1.14641e-14, -4.37114e-08, -2.2, -6, -4.37114e-08, 0, -2.62268e-07, 1, -9.61651e-08, 0, 0, 0)
