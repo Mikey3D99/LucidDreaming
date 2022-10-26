@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://beugfl4rcg5or"
-path="res://.godot/imported/tokonoma1.glb-38afb8ea5ad5c11a74f0b4517593a28c.scn"
+uid="uid://cv1kfinvw4a21"
+path="res://.godot/imported/desk_corner.glb-92d2cc984299cff0f52513e0644270c5.scn"
 
 [deps]
 
-source_file="res://assets/room1/models/tokonoma1.glb"
-dest_files=["res://.godot/imported/tokonoma1.glb-38afb8ea5ad5c11a74f0b4517593a28c.scn"]
+source_file="res://assets/room1/models/gLTF/desk_corner.glb"
+dest_files=["res://.godot/imported/desk_corner.glb-92d2cc984299cff0f52513e0644270c5.scn"]
 
 [params]
 
