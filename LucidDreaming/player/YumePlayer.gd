@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $neck
 @onready var camera := $neck/Camera3d
 @onready var vignette := $neck/Camera3d/Sneak/CanvasLayer/Vignette
-@onready var yume_animations := $neck/yumewalkglb/AnimationPlayer
+@onready var yume_animations := $neck/GIGACHADYume/AnimationPlayer
 
 
 # _unhandled_input was blocking mouse movement when sneaking
@@ -63,7 +63,7 @@ func _physics_process(delta):
 			velocity.z = direction.z * SPEED
 			if	is_on_floor() and Input.is_action_pressed("forward") and not yume_animations.is_playing():
 				yume_animations.playback_speed = 1
-				yume_animations.play("ArmatureAction")
+				yume_animations.play("Armature|mixamocom|Layer0001")
 			elif is_on_floor() and Input.is_action_pressed("back") and not yume_animations.is_playing():
 				yume_animations.playback_speed = 1
 				yume_animations.play_backwards("ArmatureAction")

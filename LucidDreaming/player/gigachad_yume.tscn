@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cweqvpxw37q6n"]
+
+[ext_resource type="PackedScene" uid="uid://bg1m1wfcgf0pp" path="res://player/GIGACHADYume.glb" id="1_r8sye"]
+
+[node name="GIGACHADYume" instance=ExtResource("1_r8sye")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2tjv1wstkahd"]
+[gd_scene load_steps=9 format=3 uid="uid://2tjv1wstkahd"]
 
 [ext_resource type="PackedScene" uid="uid://te64e01myvy8" path="res://assets/room1/models/first_room_backup.glb" id="1_i6oe8"]
 [ext_resource type="PackedScene" uid="uid://dc5mc5pmj0c83" path="res://player/YumePlayer.tscn" id="2_cgieh"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dysj04xe8xe7y" path="res://assets/room1/office_chair.tscn" id="5_fx1oh"]
 [ext_resource type="PackedScene" uid="uid://bbabetc0b3k0j" path="res://assets/room1/lamp_architect.tscn" id="6_oa11l"]
 [ext_resource type="PackedScene" uid="uid://tpoorjkrbhlg" path="res://assets/room1/desk_big.tscn" id="6_sfsf1"]
-[ext_resource type="PackedScene" uid="uid://4pn4dvdf63ha" path="res://tokonoma.tscn" id="7_bxq5s"]
 
 [sub_resource type="Environment" id="Environment_by6j6"]
 background_mode = 1
@@ -76,6 +75,3 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -23.097, 0.328657, 4.56726)
 
 [node name="desk_big2" parent="." index="11" instance=ExtResource("6_sfsf1")]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -13.9846, 0.201144, 8.49006)
-
-[node name="wtf" parent="." index="12" instance=ExtResource("7_bxq5s")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.2258, 0.638168, 21.0809)
