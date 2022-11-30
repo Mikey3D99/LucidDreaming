@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/rooms/room1/models/firstRoomModels/anothawall.glb" id="1_af38q"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a08s5"]
+points = PackedVector3Array(-1.16833, -1.16833, -44.6183, 1.18833, 1.18833, 1.16385, 1.18833, -1.16833, 1.16385, 1.18833, 1.18833, -44.6183, -1.16833, 1.18833, 1.16385, -1.16833, -1.16833, 1.16385, 1.18833, -1.16833, -44.6183, -1.16833, 1.18833, -44.6183)
+
+[node name="anothawall" instance=ExtResource("1_af38q")]
+
+[node name="StaticBody3d" type="StaticBody3D" parent="frame" index="0"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="frame/StaticBody3d" index="0"]
+shape = SubResource("ConvexPolygonShape3D_a08s5")

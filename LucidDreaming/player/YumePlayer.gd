@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
-const SPEED = 10
-const JUMP_VELOCITY = 16
+const SPEED = 5
+const JUMP_VELOCITY = 8
 const SNEAK = SPEED / 1.5
 @export var mouse_sensitivity = 0.01
 @export var camera_up_max = 55
 @export var camera_down_max = -60
+@export var allow_mouse = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -22,7 +23,7 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion and allow_mouse:
 			neck.rotate_y(-event.relative.x * mouse_sensitivity * 0.2)
 			camera.rotate_x(-event.relative.y * mouse_sensitivity * 0.2)
 			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(camera_down_max),deg_to_rad(camera_up_max))
@@ -53,8 +54,8 @@ func _physics_process(delta):
 		# Handle Sneak
 		if Input.is_action_pressed("sneak") and is_on_floor():
 			# turn vignette on
-			yume_animations.playback_speed = 0.7
-			yume_animations.play("ArmatureAction")
+			yume_animations.playback_speed = 0.5
+			yume_animations.play("Armature|mixamocom|Layer0001")
 			set_vignette(true)
 			velocity.x = direction.x * SNEAK
 			velocity.z = direction.z * SNEAK
@@ -66,7 +67,7 @@ func _physics_process(delta):
 				yume_animations.play("Armature|mixamocom|Layer0001")
 			elif is_on_floor() and Input.is_action_pressed("back") and not yume_animations.is_playing():
 				yume_animations.playback_speed = 1
-				yume_animations.play_backwards("ArmatureAction")
+				yume_animations.play_backwards("Armature|mixamocom|Layer0001")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -76,5 +77,5 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		yume_animations.playback_speed = 1.35
-		yume_animations.play("YumeWalk")
+		#yume_animations.play("YumeWalk")
 		velocity.y = JUMP_VELOCITY

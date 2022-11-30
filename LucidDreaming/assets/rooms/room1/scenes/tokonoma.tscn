@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hyvhpc2ta6dx"]
+
+[ext_resource type="PackedScene" uid="uid://guhv6eb32xwt" path="res://assets/rooms/room1/models/firstRoomModels/tokonoma.glb" id="1_ukkd5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xm4yw"]
+points = PackedVector3Array(-32.1399, -2.02791, -94.5437, 2.70715, 2.07174, 36.6452, 2.70715, -2.02791, 36.6452, 2.70715, 2.07174, -94.5437, -32.1399, 2.07174, 36.6452, -32.1399, -2.02791, 36.6452, 2.70715, -2.02791, -94.5437, -32.1399, 2.07174, -94.5437)
+
+[node name="tokonoma" instance=ExtResource("1_ukkd5")]
+
+[node name="StaticBody3d2" type="StaticBody3D" parent="walls" index="0"]
+transform = Transform3D(1.03449e-06, 1.78577e-07, -0.75, -0.86623, 0.000200103, 8.9453e-12, 0.254321, 2.14283, 9.57919e-08, -30.4858, 0.071349, -95.3794)
+
+[node name="CollisionShape3d2" type="CollisionShape3D" parent="walls/StaticBody3d2" index="0"]
+transform = Transform3D(0, -1.1544, 0.000107801, 5.96047e-08, 0.137009, 0.46666, -1.33333, -1.55966e-06, 1.11262e-07, 0.0926469, 44.5, -40.6477)
+shape = SubResource("ConvexPolygonShape3D_xm4yw")

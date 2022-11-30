@@ -1,8 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://lwyab1l3quhs"]
+[gd_scene format=3 uid="uid://cgmq4oqw1hq00"]
 
-[ext_resource type="PackedScene" uid="uid://s6s8nkj754xg" path="res://player/yumewalkglb.glb" id="1_xhhfs"]
-
-[node name="yumewalkglb" instance=ExtResource("1_xhhfs")]
+[node name="yumewalkglb"]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-7.72729e-06, 1.55432, -104.275)
@@ -15,13 +13,11 @@ bones/15/position = Vector3(16.0611, -1.68356e-05, 2.18097)
 bones/15/rotation = Quaternion(0.000225625, -4.47037e-08, -3.98228e-12, 1)
 bones/16/position = Vector3(2.46616, -1.57505, 2.68241)
 bones/16/rotation = Quaternion(-9.02371e-05, -8.05516e-05, 7.58055e-05, 1)
-bones/18/position = Vector3(2.65258, -1.53149, 1.53147)
 bones/19/position = Vector3(1.95457, -1.12849, 1.12849)
 bones/20/position = Vector3(2.6896e-06, 2.52336, -6.47269e-08)
 bones/21/position = Vector3(9.1093, -0.517082, 2.26007)
 bones/22/position = Vector3(3.67642, -9.67755e-06, 2.93413e-05)
 bones/23/position = Vector3(2.88308, 4.01255e-05, -4.28762e-05)
-bones/24/position = Vector3(2.39273, 2.67894e-05, 3.34177e-05)
 bones/25/position = Vector3(5.5181e-06, 2.39272, -2.1141e-07)
 bones/26/position = Vector3(9.53341, -3.72268e-05, 1.36364e-05)
 bones/27/position = Vector3(3.69824, -2.98652e-06, 1.82409e-05)
@@ -30,6 +26,7 @@ bones/29/position = Vector3(2.83391, -4.86589e-05, -8.72929e-06)
 bones/30/position = Vector3(9.31766e-06, 2.83391, -2.66358e-07)
 bones/31/position = Vector3(9.10453, -0.043939, -1.86508)
 bones/32/position = Vector3(3.15404, -1.49549e-05, 9.64478e-06)
+bones/33/position = Vector3(2.9377, -5.08847e-05, -6.71577e-06)
 bones/34/position = Vector3(2.64748, -4.57864e-05, -2.0396e-07)
 bones/35/position = Vector3(9.04032e-06, 2.64744, 3.53903e-08)
 bones/36/position = Vector3(8.0778, -0.488672, -3.80607)
@@ -40,7 +37,6 @@ bones/40/position = Vector3(5.68259e-06, 1.97568, -7.00355e-07)
 bones/42/position = Vector3(-10.5928, -0.524797, -2.2321)
 bones/42/rotation = Quaternion(1.18058e-08, 8.33528e-09, 0.610166, 0.792274)
 bones/43/position = Vector3(-27.8415, -3.06356e-05, 1.33203e-05)
-bones/44/position = Vector3(-16.152, 3.29825e-07, 2.18099)
 bones/44/rotation = Quaternion(0.00023261, 1.8097e-06, -4.06356e-10, 1)
 bones/45/position = Vector3(-8.07667, -0.488456, -3.80601)
 bones/45/rotation = Quaternion(7.44849e-08, -1.38889e-05, -1.16711e-08, 1)
@@ -51,7 +47,6 @@ bones/48/position = Vector3(-1.97569, -1.36802e-05, -9.63919e-07)
 bones/49/position = Vector3(1.42082e-06, 1.97568, 5.17815e-07)
 bones/51/position = Vector3(-3.15403, 1.87375e-05, 4.86085e-05)
 bones/52/position = Vector3(-2.93767, -4.00958e-05, -3.93232e-05)
-bones/53/position = Vector3(-2.64745, 2.79446e-05, -2.20723e-06)
 bones/54/position = Vector3(-7.13274e-06, 2.64745, -3.31551e-07)
 bones/56/position = Vector3(-3.69824, 2.04841e-05, -2.18581e-05)
 bones/57/rotation = Quaternion(5.95669e-08, -1.76734e-05, -4.80439e-08, 1)

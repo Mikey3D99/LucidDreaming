@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/rooms/room1/models/firstRoomModels/door.glb" id="1_8ar2x"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2hmn1"]
+points = PackedVector3Array(1.0198, 8.74387, 1.13662, -4.57754, -0.938975, -1.1328, 0.934911, -0.938975, -1.1328, -4.6946, -1.14146, 1.14943, -4.57754, 8.59608, -1.1328, -4.6946, 8.79856, 1.14943, 1.0197, -1.08564, 1.13635, 0.934372, 8.59608, -1.1328, 1, 4.74286, -0.243808)
+
+[node name="door" instance=ExtResource("1_8ar2x")]
+
+[node name="door2" parent="." index="0"]
+transform = Transform3D(0, 0, 3.02, 0, 1.77, 0, -0.07, 0, 0, 0.0865297, 2.0464, -0.327415)
+
+[node name="StaticBody3d" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(0, 0, 3.02, 0, 1.77, 0, -0.07, 0, 0, 0.0865297, 2.0464, -0.327415)
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d" index="0"]
+shape = SubResource("ConvexPolygonShape3D_2hmn1")
