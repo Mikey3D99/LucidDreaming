@@ -7,7 +7,6 @@ extends Node3D
 @export var door_size = -6
 @export var time_of_closing_opening = 1
 @export var is_opened = false
-@export var is_closed = true
 @onready var stopped = false
 signal player_near_door()
 var tween: Tween
@@ -36,12 +35,12 @@ func set_tween(tween_usr: Tween) -> void:
 	self.tween = tween_usr
 	
 func _on_yume_player_interact_with_door():
-	is_closed = not is_closed
+	is_opened = not is_opened
 	
 func _physics_process(_delta):
-	if is_closed:
+	if is_opened:
 		open()
-	elif !is_closed:
+	elif !is_opened:
 		close()
 		#print(is_closed)
 		#if is_closed and not tween.is_running():

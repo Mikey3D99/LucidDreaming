@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dycuioksbgnlq"]
+[gd_scene load_steps=9 format=3 uid="uid://dycuioksbgnlq"]
 
 [ext_resource type="PackedScene" uid="uid://dc5mc5pmj0c83" path="res://player/YumePlayer.tscn" id="1_qdu2w"]
 [ext_resource type="PackedScene" path="res://assets/monsters/Floater/scenes/FloaterScary.tscn" id="2_asqrw"]
@@ -11,13 +11,17 @@
 vertices = PackedVector3Array(1.85695, 0.4325, -2.44566, 1.60695, 0.4325, -8.44566, 1.10695, 0.4325, -6.94566, 0.106949, 0.4325, -6.94566, -0.393051, 0.4325, -8.44566, -0.643051, 0.4325, -2.19566, 1.85695, 0.4325, -2.44566, 1.10695, 0.4325, -6.94566, 0.106949, 0.4325, -6.94566, -0.643051, 0.4325, -2.19566, -0.393051, 0.4325, 0.304342, 2.10695, 0.4325, 0.0543423, 2.10695, 0.4325, 0.0543423, 9.10695, 0.4325, 0.0543423, 9.10695, 0.4325, -2.19566, 1.85695, 0.4325, -2.44566, -0.393051, 0.4325, 0.304342, -0.393051, 0.4325, 5.55434, 1.85695, 0.4325, 5.55434, 2.10695, 0.4325, 0.0543423, -7.89305, 0.4325, 0.0543423, -0.393051, 0.4325, 0.304342, -0.643051, 0.4325, -2.19566, -7.89305, 0.4325, -2.19566)
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(11, 10, 6), PackedInt32Array(6, 10, 9), PackedInt32Array(6, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21)]
 
+[sub_resource type="Environment" id="Environment_qwore"]
+background_mode = 1
+background_color = Color(0.600556, 0.477589, 0.887175, 1)
+
 [node name="startingRoom" type="Node3D"]
 
 [node name="YumePlayer" parent="." instance=ExtResource("1_qdu2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658184, 0, 5.80702)
 
 [node name="FloaterScary" parent="." instance=ExtResource("2_asqrw")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.61318, -0.0957165, 3.3932)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.61318, -0.0957165, -1.40561)
 
 [node name="NavigationRegion3d" type="NavigationRegion3D" parent="."]
 navmesh = SubResource("NavigationMesh_fg14u")
@@ -84,6 +88,7 @@ transform = Transform3D(8.74228e-09, 0.2, -1.74846e-08, 0.2, -8.74228e-09, 0, -7
 transform = Transform3D(8.74228e-09, 0.2, -1.74846e-08, 0.2, -8.74228e-09, 0, -7.64274e-16, -1.74846e-08, -0.2, 0.641634, 0, -0.315507)
 
 [node name="WALLS" type="Node3D" parent="NavigationRegion3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 
 [node name="anothawall" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.42998, 1.87309, -3.92654)
@@ -108,6 +113,18 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.14858, 1.87309, 5.20
 
 [node name="anothawall30" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.14858, 1.87309, 3.39643)
+
+[node name="anothawall35" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.33406, 1.87309, -0.308019)
+
+[node name="anothawall36" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.33406, 1.87309, -2.1201)
+
+[node name="anothawall37" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.66351, 1.87309, -0.308019)
+
+[node name="anothawall38" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.66351, 1.87309, -2.1201)
 
 [node name="anothawall31" parent="NavigationRegion3d/WALLS" instance=ExtResource("3_lo8cy")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.14858, 1.87309, 1.58248)
@@ -182,6 +199,7 @@ transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 3.30176, 1.87309, -2.97919)
 
 [node name="DOORS" type="Node3D" parent="NavigationRegion3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 
 [node name="openableDoor" parent="NavigationRegion3d/DOORS" instance=ExtResource("5_cps01")]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -1.14391, 0.056463, -1.23011)
@@ -194,6 +212,9 @@ transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0.317628, 0.0603827,
 [node name="ROOF" type="Node3D" parent="NavigationRegion3d"]
 
 [node name="NavigationAgent3d" type="NavigationAgent3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qwore")
 
 [connection signal="interact_with_door" from="YumePlayer" to="NavigationRegion3d/DOORS/openableDoor" method="_on_yume_player_interact_with_door"]
 [connection signal="player_near_door" from="NavigationRegion3d/DOORS/openableDoor" to="YumePlayer" method="_on_openable_door_player_near_door"]
