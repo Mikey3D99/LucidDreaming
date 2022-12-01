@@ -18,11 +18,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var yume_tween
 @onready var door = $"../NavigationRegion3d/DOORS/openableDoor"
 @onready var is_near_door: bool
+@onready var is_near_wall: bool
 signal interact_with_door
 
 func _ready():
 	door.set_tween(door.create_tween())
 	is_near_door = false
+	is_near_wall = false
 	pass
 
 # _unhandled_input was blocking mouse movement when sneaking
@@ -38,9 +40,13 @@ func _input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(camera_down_max),deg_to_rad(camera_up_max))
 
 func peek(how_long, rotation_amount, r_or_l, _direction):
+	allow_mouse = false
 	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	tween.tween_property(feet, "rotation:z", deg_to_rad(rotation_amount * r_or_l) , how_long)
+	if is_near_wall:
+		tween.pause()
+		
 	
 func set_vignette(visible_on_off) -> void:
 	vignette.visible = visible_on_off
@@ -48,6 +54,12 @@ func set_vignette(visible_on_off) -> void:
 func _on_openable_door_player_near_door():
 	is_near_door = true
 	pass # Replace with function body.
+
+func _on_wall_detector_body_entered(body): # maska i layer scianowy (2)
+	is_near_wall = true
+	
+func _on_wall_detector_body_exited(body):
+	is_near_wall = false
 
 func _physics_process(delta):
 	#fps check
@@ -90,6 +102,8 @@ func _physics_process(delta):
 			if Input.is_action_pressed("peek_left") and is_on_floor():
 				peek(0.5, 100, 1,direction)
 				peek(0.5, 0, -1,direction)
+			if rad_to_deg(feet.rotation.z) > -1  and rad_to_deg(feet.rotation.z) < 1:
+				allow_mouse = true
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
@@ -103,4 +117,8 @@ func _physics_process(delta):
 		yume_animations.playback_speed = 1.35
 		#yume_animations.play("YumeWalk")
 		velocity.y = JUMP_VELOCITY
+
+
+
+
 
