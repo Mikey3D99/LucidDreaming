@@ -19,6 +19,7 @@ shader_parameter/vignette_opacity = 1.0
 shader_parameter/vignette_rgb = null
 
 [node name="YumePlayer" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_o26v8")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
@@ -28,20 +29,23 @@ shape = SubResource("CapsuleShape3D_sqoj8")
 [node name="neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65021, -7.85589e-05)
 
-[node name="Camera3d" type="Camera3D" parent="neck"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0.0507878, -0.222, -0.363805)
+[node name="feet" type="Node3D" parent="neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.64186, 7.85589e-05)
+
+[node name="Camera3d" type="Camera3D" parent="neck/feet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124947, 1.41986, -0.363884)
 h_offset = -0.175
 fov = 89.3
 
-[node name="Sneak" type="Control" parent="neck/Camera3d"]
+[node name="Sneak" type="Control" parent="neck/feet/Camera3d"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="neck/Camera3d/Sneak"]
+[node name="CanvasLayer" type="CanvasLayer" parent="neck/feet/Camera3d/Sneak"]
 
-[node name="Vignette" type="ColorRect" parent="neck/Camera3d/Sneak/CanvasLayer"]
+[node name="Vignette" type="ColorRect" parent="neck/feet/Camera3d/Sneak/CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_m0u3t")
 anchors_preset = 15
@@ -50,15 +54,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Jumpscare" type="Control" parent="neck/Camera3d"]
+[node name="Jumpscare" type="Control" parent="neck/feet/Camera3d"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="neck/Camera3d/Jumpscare"]
+[node name="CanvasLayer" type="CanvasLayer" parent="neck/feet/Camera3d/Jumpscare"]
 
-[node name="Vignette" type="ColorRect" parent="neck/Camera3d/Jumpscare/CanvasLayer"]
+[node name="Vignette" type="ColorRect" parent="neck/feet/Camera3d/Jumpscare/CanvasLayer"]
 material = SubResource("ShaderMaterial_fkdxy")
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,10 +70,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GIGACHADYume" parent="neck" instance=ExtResource("3_lf7co")]
-transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, -1.64172, -0.02)
+[node name="GIGACHADYume" parent="neck/feet" instance=ExtResource("3_lf7co")]
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0.000138521, -0.0200786)
 
-[node name="Skeleton3D" parent="neck/GIGACHADYume/Armature" index="0"]
+[node name="Skeleton3D" parent="neck/feet/GIGACHADYume/Armature" index="0"]
 bones/0/position = Vector3(-7.72729e-06, -28.1428, -10705)
 bones/2/position = Vector3(-2.52385e-11, 919.625, 3.44551e-11)
 bones/3/position = Vector3(-6.13909e-11, 1051, 1.52589e-05)
@@ -154,4 +158,4 @@ bones/62/rotation = Quaternion(0.442338, -0.00848572, 0.00418549, 0.896799)
 bones/63/position = Vector3(-3.64375e-05, 1549.49, -0.000563264)
 bones/64/position = Vector3(7.00951e-05, 595.355, -3.8147e-05)
 
-[editable path="neck/GIGACHADYume"]
+[editable path="neck/feet/GIGACHADYume"]

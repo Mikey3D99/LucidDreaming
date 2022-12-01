@@ -15,13 +15,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var walk = true
 @onready var start_turning = false
 @onready var timer = $Timer
-@onready var yume_camera = $"../YumePlayer/neck/Camera3d"
+@onready var yume_camera = $"../YumePlayer/neck/feet" # wysyla wiazke do stop zeby nie wykrywal zza rogu
 @onready var audio = $AudioStreamPlayer3d
 @onready var sounds: Array
 @onready var player_seen = false
 @onready var player_death = false
 @onready var jumpscare_scene = "res://assets/jumpscares/scenes/FloaterJumpscare.tscn"
-@onready var player_screen = $"../YumePlayer/neck/Camera3d/Jumpscare/CanvasLayer/Vignette"
+@onready var player_screen = $"../YumePlayer/neck/feet/Camera3d/Jumpscare/CanvasLayer/Vignette"
 @onready var curr_amount
 
 enum States{
@@ -113,7 +113,7 @@ func _on_turn_range_body_entered(body):
 		currentState = States.hunting
 		player_death = true
 		
-func _on_turn_range_body_exited(body):
+func _on_turn_range_body_exited(_body):
 	walk = true
 
 func _on_timer_timeout():
@@ -123,7 +123,7 @@ func _on_timer_timeout():
 # wyslij ray z enemy do player kamery i zrob cos
 func ray_to_player():
 	var space_state = get_world_3d().direct_space_state
-	var result = space_state.intersect_ray(PhysicsRayQueryParameters3D.create($Head.global_position, yume_camera.global_position, 1, [self]))
+	var result = space_state.intersect_ray(PhysicsRayQueryParameters3D.create($Head.global_position, yume_camera.global_position, 1, []))
 	#print(result)
 	if result.size() > 0:
 		if result["collider"].is_in_group("Player"):
