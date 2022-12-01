@@ -102,7 +102,8 @@ func _physics_process(delta):
 			if Input.is_action_pressed("peek_left") and is_on_floor():
 				peek(0.5, 100, 1,direction)
 				peek(0.5, 0, -1,direction)
-			if rad_to_deg(feet.rotation.z) > -1  and rad_to_deg(feet.rotation.z) < 1:
+			print(rad_to_deg(feet.rotation.z))
+		if rad_to_deg(feet.rotation.z) > -15  and rad_to_deg(feet.rotation.z) < 15:
 				allow_mouse = true
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
