@@ -17,10 +17,23 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var yume_animations := $neck/feet/GIGACHADYume/AnimationPlayer
 @onready var yume_tween
 @onready var door = $"../NavigationRegion3d/DOORS/openableDoor"
+@onready var yumeMovementAudio =  $neck/feet/YumeMovementSounds
 @onready var is_near_door: bool
 @onready var is_near_wall: bool
+@export var pitch: float
+@export var running_volume: int
 @onready var currentDoor
 signal interact_with_door()
+enum movementAudio{
+	running,
+	walking,
+	sneaking,
+	jumping,
+	standing
+}
+var currentState = movementAudio.running
+
+#AudioStreamPlayer3D
 
 func _ready():
 	door.set_tween(door.create_tween())
@@ -63,6 +76,14 @@ func _on_wall_detector_body_entered(body): # maska i layer scianowy (2)
 func _on_wall_detector_body_exited(body):
 	is_near_wall = false
 
+func yume_running_sounds(choice, volume):
+	yumeMovementAudio.set_pitch_scale(pitch)
+	var sfx = load(choice)
+	if sfx and !yumeMovementAudio.playing:
+		yumeMovementAudio.stream = sfx
+		yumeMovementAudio.set_volume_db(linear_to_db(volume))
+		yumeMovementAudio.play()
+
 func _physics_process(delta):
 	#fps check
 	#print(Engine.get_frames_per_second())    
@@ -81,21 +102,29 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
 		if	Input.is_action_pressed("forward") and not yume_animations.is_playing() and is_on_floor():
+			
 			yume_animations.playback_speed = 1
 			yume_animations.play("Armature|mixamocom|Layer0001")
+			currentState = movementAudio.running
+			
 		elif Input.is_action_pressed("back") and not yume_animations.is_playing() and is_on_floor():
+			
 			yume_animations.playback_speed = 1
 			yume_animations.play_backwards("Armature|mixamocom|Layer0001")
+			currentState = movementAudio.running
 				# Handle Sneak
 		if Input.is_action_pressed("sneak") and is_on_floor():
 			# turn vignette on
 			yume_animations.playback_speed = 0.5
 			yume_animations.play("Armature|mixamocom|Layer0001")
+			currentState = movementAudio.sneaking
 			set_vignette(true)
 			velocity.x = direction.x * SNEAK
 			velocity.z = direction.z * SNEAK
 	else: #stanie w miejscu
+		currentState = movementAudio.standing
 		if Input.is_action_pressed("sneak") and is_on_floor(): # wychylanie sie
 			set_vignette(true)
 			if Input.is_action_pressed("peek_right") and is_on_floor():
@@ -118,12 +147,20 @@ func _physics_process(delta):
 			self.disconnect("interact_with_door", callable)
 	if rad_to_deg(feet.rotation.z) > -30  and rad_to_deg(feet.rotation.z) < 30: # allow mouse movement after peek
 				allow_mouse = true	
-
-	move_and_slide()
-	
-	# Handle Jump.
+		# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		currentState = movementAudio.jumping
 		yume_animations.playback_speed = 1.35
 		#yume_animations.play("YumeWalk")
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY			
+	
+	move_and_slide()
+	# handle audio
+	match currentState:
+		movementAudio.running:
+			yume_running_sounds("res://player/running.wav", 0.5)
+		movementAudio.standing:
+			yumeMovementAudio.stop()
+	
+
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bekdhp4wnb6cs"]
+[gd_scene load_steps=9 format=3 uid="uid://bekdhp4wnb6cs"]
 
 [ext_resource type="PackedScene" uid="uid://clylux3g1jute" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/anothawall.glb" id="1_wypah"]
 [ext_resource type="Texture2D" uid="uid://b3jv3ofuj2w5t" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/firstroomceilingbake_Color.png" id="2_4ug2w"]
@@ -10,7 +10,6 @@
 albedo_texture = ExtResource("2_4ug2w")
 metallic = 1.0
 roughness = 0.7
-emission_enabled = true
 emission = Color(0.313726, 0.164706, 0.0235294, 1)
 normal_enabled = true
 normal_texture = ExtResource("3_q8p1p")
@@ -32,6 +31,9 @@ albedo_texture = ExtResource("4_yrk8h")
 normal_enabled = true
 normal_texture = ExtResource("5_v6uat")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pg4y3"]
+data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
 [node name="anothawall" instance=ExtResource("1_wypah")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 9, 0)
 
@@ -40,3 +42,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_27jou")
 
 [node name="Plane" parent="." index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_t0ugj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pg4y3")

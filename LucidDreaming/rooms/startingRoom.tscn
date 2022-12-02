@@ -13,7 +13,6 @@
 
 [sub_resource type="Environment" id="Environment_qwore"]
 background_mode = 1
-background_color = Color(0.568627, 0.568627, 0.568627, 1)
 ambient_light_color = Color(0.498039, 0.498039, 0.498039, 1)
 
 [node name="startingRoom" type="Node3D"]
@@ -23,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00286, 0, -1.23006)
 collision_mask = 1
 
 [node name="FloaterScary" parent="." instance=ExtResource("2_asqrw")]
-transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, -11.0542, -0.364146, -1.07032)
+transform = Transform3D(-5.24537e-08, 0.104587, -1.19543, 0, 1.19543, 0.104587, 1.2, 4.57164e-09, -5.22541e-08, -9.65425, -0.364146, -1.07032)
 
 [node name="NavigationRegion3d" type="NavigationRegion3D" parent="."]
 navmesh = SubResource("NavigationMesh_fg14u")

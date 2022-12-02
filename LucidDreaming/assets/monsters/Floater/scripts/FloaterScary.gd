@@ -159,7 +159,6 @@ func _physics_process(delta):
 	match currentState:
 		
 		States.patrol: # patrol
-			player_seen = false
 			follow_path(delta)
 			pass
 		States.chasing: # goni gracza
