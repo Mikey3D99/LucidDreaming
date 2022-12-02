@@ -28,7 +28,7 @@ func randomize_jumpscare_sounds(sounds_array, pitch_bot, pitch_top, volume):
 	var choice = sounds_array[randi() % sounds_array.size()]
 	var pitch = (float)(pitch_bot + randi() % pitch_top) / 100
 	audio.set_pitch_scale(pitch)
-	print(pitch)
+	#print(pitch)
 	var sfx = load(choice)
 	if sfx:
 		audio.stream = sfx

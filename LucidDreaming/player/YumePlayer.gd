@@ -102,14 +102,14 @@ func _physics_process(delta):
 			if Input.is_action_pressed("peek_left") and is_on_floor():
 				peek(0.5, 100, 1,direction)
 				peek(0.5, 0, -1,direction)
-			print(rad_to_deg(feet.rotation.z))
-		if rad_to_deg(feet.rotation.z) > -15  and rad_to_deg(feet.rotation.z) < 15:
-				allow_mouse = true
+			#print(rad_to_deg(feet.rotation.z))
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_released("interact") and is_on_floor() and is_near_door:
 		emit_signal("interact_with_door")
+	if rad_to_deg(feet.rotation.z) > -30  and rad_to_deg(feet.rotation.z) < 30: # allow mouse movement after peek
+				allow_mouse = true	
 
 	move_and_slide()
 	

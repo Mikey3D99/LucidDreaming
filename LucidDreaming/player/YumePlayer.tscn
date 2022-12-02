@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65021, -7.85589e-05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.64186, 7.85589e-05)
 
 [node name="Camera3d" type="Camera3D" parent="neck/feet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15476, 1.31827, 0.910873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 5, -0.401)
 h_offset = -0.175
 fov = 89.3
 
@@ -198,7 +198,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="walls" type="CollisionShape3D" parent="neck/feet/WallDetector"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.100884, 1.68427, -0.164802)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.100884, 1.68427, -0.244491)
 shape = SubResource("CapsuleShape3D_gxvd5")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]

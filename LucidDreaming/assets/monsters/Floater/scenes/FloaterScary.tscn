@@ -1,23 +1,27 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://de1l47cnxdsn"]
 
 [ext_resource type="Script" path="res://assets/monsters/Floater/scripts/FloaterScary.gd" id="1_m8h16"]
 [ext_resource type="PackedScene" uid="uid://el5p7io5rkdd" path="res://assets/monsters/Floater/scenes/floater.tscn" id="1_p1wcp"]
 [ext_resource type="PackedScene" uid="uid://dlk44fblq2gfc" path="res://assets/monsters/Floater/scenes/FloaterVision.tscn" id="3_1vx0m"]
+[ext_resource type="Script" path="res://assets/monsters/Floater/scripts/floating_animation.gd" id="3_abvd7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7alm"]
 height = 2.45671
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_81y6g"]
-radius = 1.5
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojmde"]
+radius = 0.3
+height = 1.0
 
 [node name="FloaterScary" type="CharacterBody3D" groups=["SightFloater"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00296974, 0, -0.0168393)
+collision_layer = 8
+wall_min_slide_angle = 0.705113
 script = ExtResource("1_m8h16")
 turn_speed = 3.0
-volume = 0
 
 [node name="Floater" parent="." instance=ExtResource("1_p1wcp")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("3_abvd7")
 
 [node name="Skeleton3D" parent="Floater/Armature" index="0"]
 bones/0/position = Vector3(2.61365, -0.0942285, -152.241)
@@ -142,29 +146,30 @@ shape = SubResource("CapsuleShape3D_f7alm")
 [node name="NavigationAgent3d" type="NavigationAgent3D" parent="."]
 
 [node name="SightRange" type="Area3D" parent="."]
+collision_layer = 4
 
 [node name="turn" parent="SightRange" instance=ExtResource("3_1vx0m")]
-transform = Transform3D(5.86581e-15, 1.63087e-07, 4.894, 3.07, -1.63087e-07, -1.47277e-20, 1.34194e-07, 3.731, -2.13924e-07, 1.86032e-07, 2.14963, -3.24745)
+transform = Transform3D(5.86582e-15, 1.63087e-07, 4.894, 3.07, -1.63087e-07, -1.93026e-20, 1.34194e-07, 3.731, -2.13924e-07, 1.86032e-07, 2.14963, -3.24745)
 
 [node name="Eyes" type="Node3D" parent="."]
 
 [node name="TurnRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7474e-08, 2.21496, -0.314861)
+collision_layer = 8
+collision_mask = 2
 
 [node name="vis" type="CollisionShape3D" parent="TurnRange" groups=["SightFloater"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00583e-07, -0.416079, -1.15064)
-shape = SubResource("SphereShape3D_81y6g")
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-pitch_scale = 0.3
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.79397e-09, -0.152236, -0.0381592)
+shape = SubResource("CapsuleShape3D_ojmde")
 
 [node name="AudioStreamPlayer3d" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02156, 0)
-unit_db = 1.0
-max_distance = 50.0
-emission_angle_degrees = 90.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09127, 0)
+max_db = 1.0
+max_distance = 10.0
+emission_angle_enabled = true
+emission_angle_degrees = 58.1
+emission_angle_filter_attenuation_db = -40.5
+doppler_tracking = 2
 
 [node name="Head" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37487e-08, 2.22932, -0.271447)
@@ -173,6 +178,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37487e-08, 2.22932, -0.2714
 [connection signal="body_exited" from="SightRange" to="." method="_on_sight_range_body_exited"]
 [connection signal="body_entered" from="TurnRange" to="." method="_on_turn_range_body_entered"]
 [connection signal="body_exited" from="TurnRange" to="." method="_on_turn_range_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Floater"]

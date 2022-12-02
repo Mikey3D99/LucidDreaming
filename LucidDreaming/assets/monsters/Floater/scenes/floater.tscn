@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://el5p7io5rkdd"]
 
-[ext_resource type="PackedScene" path="res://assets/monsters/Floater/models/Floater.glb" id="1_l45ud"]
+[ext_resource type="PackedScene" uid="uid://k37gq4x547bu" path="res://assets/monsters/Floater/models/Floater.glb" id="1_l45ud"]
 
 [node name="Floater" instance=ExtResource("1_l45ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(3.62745, -0.411045, -152.483)
