@@ -1,15 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm7blqb4bvjts"]
+[gd_scene load_steps=8 format=3 uid="uid://bekdhp4wnb6cs"]
 
-[ext_resource type="PackedScene" uid="uid://clylux3g1jute" path="res://assets/rooms/room1/models/firstRoomModels/anothawall.glb" id="1_af38q"]
+[ext_resource type="PackedScene" uid="uid://clylux3g1jute" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/anothawall.glb" id="1_wypah"]
+[ext_resource type="Texture2D" uid="uid://b3jv3ofuj2w5t" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/firstroomceilingbake_Color.png" id="2_4ug2w"]
+[ext_resource type="Texture2D" uid="uid://cwhlwar8ynjrf" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/firstroomceilingbake_Normal.png" id="3_q8p1p"]
+[ext_resource type="Texture2D" uid="uid://c53fvv5jq32nc" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/ajhavedosyc_Color.png" id="4_yrk8h"]
+[ext_resource type="Texture2D" uid="uid://brqippguqr38o" path="res://assets/rooms/room1/models/firstRoomModels/anothawall/ajhavedosyc_Normal.png" id="5_v6uat"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a08s5"]
-points = PackedVector3Array(-1.16833, -1.16833, -44.6183, 1.18833, 1.18833, 1.16385, 1.18833, -1.16833, 1.16385, 1.18833, 1.18833, -44.6183, -1.16833, 1.18833, 1.16385, -1.16833, -1.16833, 1.16385, 1.18833, -1.16833, -44.6183, -1.16833, 1.18833, -44.6183)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27jou"]
+albedo_texture = ExtResource("2_4ug2w")
+metallic = 1.0
+roughness = 0.7
+emission_enabled = true
+emission = Color(0.313726, 0.164706, 0.0235294, 1)
+normal_enabled = true
+normal_texture = ExtResource("3_q8p1p")
+rim = 0.0
+rim_tint = 0.45
+clearcoat_roughness = 1.0
+ao_enabled = true
+ao_light_affect = 0.3
+ao_on_uv2 = true
+refraction_scale = -1.0
+uv1_scale = Vector3(-0.018, -0.018, -0.018)
+uv1_offset = Vector3(1.318, 4.496, -1.159)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.615571
+uv1_world_triplanar = true
 
-[node name="anothawall" instance=ExtResource("1_af38q")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0ugj"]
+albedo_texture = ExtResource("4_yrk8h")
+normal_enabled = true
+normal_texture = ExtResource("5_v6uat")
 
-[node name="StaticBody3d" type="StaticBody3D" parent="frame" index="0"]
-collision_layer = 3
-collision_mask = 2
+[node name="anothawall" instance=ExtResource("1_wypah")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 9, 0)
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="frame/StaticBody3d" index="0"]
-shape = SubResource("ConvexPolygonShape3D_a08s5")
+[node name="frame" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_27jou")
+
+[node name="Plane" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_t0ugj")

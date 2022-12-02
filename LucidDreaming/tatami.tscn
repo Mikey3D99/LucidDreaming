@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://1u4ukcxe1flg"]
+
+[ext_resource type="PackedScene" uid="uid://du061luj5gpk5" path="res://assets/rooms/room1/models/firstRoomModels/tatami/tatami.glb" id="1_ndog7"]
+[ext_resource type="Texture2D" uid="uid://csppbg4sswxow" path="res://assets/rooms/room1/models/firstRoomModels/tatami/betterfloor_bake_Color.png" id="2_rfo21"]
+[ext_resource type="Texture2D" uid="uid://dp6af46wxrr2r" path="res://assets/rooms/room1/models/firstRoomModels/tatami/betterfloor_bake_Normal.png" id="3_xslbl"]
+[ext_resource type="Texture2D" uid="uid://cxfqiw2a3kv2j" path="res://assets/rooms/room1/models/firstRoomModels/tatami/betterfloor_bake1_Color.png" id="4_gqee3"]
+[ext_resource type="Texture2D" uid="uid://dr70badbiuv1i" path="res://assets/rooms/room1/models/firstRoomModels/tatami/betterfloor_bake1_Normal.png" id="5_2si57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxa58"]
+albedo_texture = ExtResource("2_rfo21")
+normal_enabled = true
+normal_texture = ExtResource("3_xslbl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccxus"]
+albedo_texture = ExtResource("4_gqee3")
+normal_enabled = true
+normal_texture = ExtResource("5_2si57")
+
+[node name="tatami" instance=ExtResource("1_ndog7")]
+
+[node name="tatami2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oxa58")
+surface_material_override/1 = SubResource("StandardMaterial3D_ccxus")

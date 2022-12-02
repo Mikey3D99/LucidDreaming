@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cytv5d3202k2m"]
+
+[ext_resource type="PackedScene" uid="uid://cxqwpf3k173e2" path="res://assets/rooms/room1/models/firstRoomModels/ceiling.glb" id="1_swhbw"]
+
+[node name="ceiling" instance=ExtResource("1_swhbw")]

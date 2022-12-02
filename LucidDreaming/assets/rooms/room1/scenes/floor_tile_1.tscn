@@ -10,10 +10,16 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [node name="floor_tile1" instance=ExtResource("1_vw2v3")]
 
+[node name="floor" parent="." index="0"]
+gi_mode = 2
+
 [node name="StaticBody3d" type="StaticBody3D" parent="floor" index="0"]
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="floor/StaticBody3d" index="0"]
 shape = SubResource("ConvexPolygonShape3D_eoq0c")
+
+[node name="wood1004" parent="." index="1"]
+gi_mode = 2
 
 [node name="StaticBody3d" type="StaticBody3D" parent="wood1004" index="0"]
 

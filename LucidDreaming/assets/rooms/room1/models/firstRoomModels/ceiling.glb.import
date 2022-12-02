@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clylux3g1jute"
-path="res://.godot/imported/anothawall.glb-c69f212f0127a521e40a3729395e90f9.scn"
+uid="uid://cxqwpf3k173e2"
+path="res://.godot/imported/ceiling.glb-9512704a9794c62f731c1e1caf5aa3e0.scn"
 
 [deps]
 
-source_file="res://assets/rooms/room1/models/firstRoomModels/anothawall.glb"
-dest_files=["res://.godot/imported/anothawall.glb-c69f212f0127a521e40a3729395e90f9.scn"]
+source_file="res://assets/rooms/room1/models/firstRoomModels/ceiling.glb"
+dest_files=["res://.godot/imported/ceiling.glb-9512704a9794c62f731c1e1caf5aa3e0.scn"]
 
 [params]
 

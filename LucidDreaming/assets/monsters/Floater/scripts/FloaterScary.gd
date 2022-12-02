@@ -87,7 +87,7 @@ func follow(delta, target):
 	if nav_agent.is_target_reachable():
 		var next_location = nav_agent.get_next_location()
 		var direction = global_position.direction_to(next_location)
-		global_position += direction * delta * speed * 3
+		global_position += direction * delta * speed
 
 		
 func walk_forward(delta):
@@ -104,15 +104,6 @@ func _on_sight_range_body_exited(body):
 	if body.is_in_group("Player"):
 		currentState = States.seeking
 
-func turn(time):
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var my_random_number = rng.randf_range(-360, 360)
-	if !tween.is_running():
-		tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_SINE)
-		tween.tween_property($".", "rotation:y", deg_to_rad(my_random_number) , time)
-	start_turning = false
-
 func _on_turn_range_body_entered(body):
 	
 	if currentState == States.patrol and not body.is_in_group("SightFloater"):
@@ -125,6 +116,11 @@ func _on_turn_range_body_entered(body):
 		
 func _on_turn_range_body_exited(_body):
 	walk = true
+	
+func _on_jumpscare_range_body_entered(body):
+	if body.is_in_group("Player"):
+		player_death = true
+	pass # Replace with function body.
 	
 # wyslij ray z enemy do player kamery i zrob cos
 func ray_to_player():
@@ -169,9 +165,10 @@ func _physics_process(delta):
 		States.chasing: # goni gracza
 			observe(target_location)
 			follow(delta, target_location)
+			speed = 2
 			pass
 		States.hunting: # zabija gracza jumpsacre itp
-			darken_the_world(0.03, 0.7)
+			darken_the_world(0.01, 0.7)
 			if player_screen.material.get_shader_parameter("vignette_intensity") >= 100:
 				get_tree().change_scene_to_file(jumpscare_scene)
 			pass
@@ -181,9 +178,6 @@ func _physics_process(delta):
 	move_and_slide()
 	#var pos = $"../YumePlayer".get_position()
 	#shadow_hunt(delta)
-
-
-
 
 
 
