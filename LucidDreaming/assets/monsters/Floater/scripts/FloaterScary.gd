@@ -168,6 +168,7 @@ func _physics_process(delta):
 			pass
 		States.hunting: # zabija gracza jumpsacre itp
 			darken_the_world(0.01, 0.7)
+			observe(target_location)
 			if player_screen.material.get_shader_parameter("vignette_intensity") >= 100:
 				get_tree().change_scene_to_file(jumpscare_scene)
 			pass

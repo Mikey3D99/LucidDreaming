@@ -77,10 +77,10 @@ grow_vertical = 2
 [node name="TEMP FLASHLIGHT" type="SpotLight3D" parent="neck/feet/Camera3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -0.204486, -0.259493)
 light_specular = 1.708
-spot_range = 10.767
+spot_range = 27.611
 spot_attenuation = 0.466517
-spot_angle = 32.87
-spot_angle_attenuation = 0.297302
+spot_angle = 47.81
+spot_angle_attenuation = 1.74111
 
 [node name="GIGACHADYume" parent="neck/feet" instance=ExtResource("3_lf7co")]
 transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0.000138521, -0.0200786)
@@ -214,16 +214,18 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.1008
 shape = SubResource("CapsuleShape3D_gxvd5")
 
 [node name="YumeMovementSounds" type="AudioStreamPlayer3D" parent="neck/feet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73465e-09, -0.00835001, -0.0854388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05305e-09, 0.374334, -0.0698456)
 stream = ExtResource("4_t3wn5")
-attenuation_model = 2
+unit_size = 1.0
 max_db = 1.0
-max_distance = 2.0
+max_distance = 1.5
 emission_angle_degrees = 90.0
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00417185, 0.899864, 0)
 shape = SubResource("CapsuleShape3D_sqoj8")
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="neck/feet/WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="body_exited" from="neck/feet/WallDetector" to="." method="_on_wall_detector_body_exited"]

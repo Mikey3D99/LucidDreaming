@@ -17,11 +17,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var yume_animations := $neck/feet/GIGACHADYume/AnimationPlayer
 @onready var yume_tween
 @onready var door = $"../NavigationRegion3d/DOORS/openableDoor"
-@onready var yumeMovementAudio =  $neck/feet/YumeMovementSounds
 @onready var is_near_door: bool
 @onready var is_near_wall: bool
+
+#audio
+@onready var yumeMovementAudio =  $neck/feet/YumeMovementSounds
+@onready var ambient = $Ambient
 @export var pitch: float
-@export var running_volume: int
+@export var running_volume: float
 @onready var currentDoor
 signal interact_with_door()
 enum movementAudio{
@@ -76,13 +79,13 @@ func _on_wall_detector_body_entered(body): # maska i layer scianowy (2)
 func _on_wall_detector_body_exited(body):
 	is_near_wall = false
 
-func yume_running_sounds(choice, volume):
-	yumeMovementAudio.set_pitch_scale(pitch)
+func yume_running_sounds(choice, volume, pitch_h, audio):
+	audio.set_pitch_scale(pitch_h)
 	var sfx = load(choice)
-	if sfx and !yumeMovementAudio.playing:
-		yumeMovementAudio.stream = sfx
-		yumeMovementAudio.set_volume_db(linear_to_db(volume))
-		yumeMovementAudio.play()
+	if sfx and !audio.playing:
+		audio.stream = sfx
+		audio.set_volume_db(linear_to_db(volume))
+		audio.play()
 
 func _physics_process(delta):
 	#fps check
@@ -156,10 +159,15 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	# handle audio
+	yume_running_sounds("res://player/ambient.wav", 0.01, 0.4, ambient)
 	match currentState:
 		movementAudio.running:
-			yume_running_sounds("res://player/running.wav", 0.5)
+			yume_running_sounds("res://player/running.wav", 0.3, pitch, yumeMovementAudio)
 		movementAudio.standing:
+			yumeMovementAudio.stop()
+		movementAudio.sneaking:
+			yume_running_sounds("res://player/running.wav", 0.1, 0.45, yumeMovementAudio)
+		movementAudio.jumping:
 			yumeMovementAudio.stop()
 	
 
