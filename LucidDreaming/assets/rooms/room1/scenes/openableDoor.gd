@@ -8,7 +8,7 @@ extends Node3D
 @export var time_of_closing_opening = 1
 @export var is_opened = false
 @onready var stopped = false
-signal player_near_door()
+signal player_near_door(which_door)
 var tween: Tween
 
 
@@ -35,6 +35,7 @@ func set_tween(tween_usr: Tween) -> void:
 	self.tween = tween_usr
 	
 func _on_yume_player_interact_with_door():
+	print(self, "Kod drzwi")
 	is_opened = not is_opened
 	
 func _physics_process(_delta):
@@ -50,7 +51,7 @@ func _physics_process(_delta):
 			
 func _on_interaction_range_body_entered(body):
 	if body.is_in_group("Player"):
-		emit_signal("player_near_door")
+		emit_signal("player_near_door", self)
 
 
 

@@ -225,10 +225,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 [node name="openableDoor" parent="NavigationRegion3d/DOORS" instance=ExtResource("5_cps01")]
 transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -1.14391, 0.056463, -1.23011)
 
+[node name="openableDoor2" parent="NavigationRegion3d/DOORS" instance=ExtResource("5_cps01")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 2.61717, 0.056463, -1.23011)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qwore")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[connection signal="interact_with_door" from="YumePlayer" to="NavigationRegion3d/DOORS/openableDoor" method="_on_yume_player_interact_with_door"]
 [connection signal="player_near_door" from="NavigationRegion3d/DOORS/openableDoor" to="YumePlayer" method="_on_openable_door_player_near_door"]
+[connection signal="player_near_door" from="NavigationRegion3d/DOORS/openableDoor2" to="YumePlayer" method="_on_openable_door_player_near_door"]

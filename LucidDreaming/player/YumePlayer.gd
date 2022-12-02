@@ -19,7 +19,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var door = $"../NavigationRegion3d/DOORS/openableDoor"
 @onready var is_near_door: bool
 @onready var is_near_wall: bool
-signal interact_with_door
+@onready var currentDoor
+signal interact_with_door()
 
 func _ready():
 	door.set_tween(door.create_tween())
@@ -51,7 +52,8 @@ func peek(how_long, rotation_amount, r_or_l, _direction):
 func set_vignette(visible_on_off) -> void:
 	vignette.visible = visible_on_off
 	
-func _on_openable_door_player_near_door():
+func _on_openable_door_player_near_door(which_door):
+	currentDoor = which_door
 	is_near_door = true
 	pass # Replace with function body.
 
@@ -107,7 +109,13 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_released("interact") and is_on_floor() and is_near_door:
+		print(currentDoor)
+		var callable = Callable(currentDoor, "_on_yume_player_interact_with_door")
+		# Option 2: Object.connect() with a constructed Callable using a target object and method name.
+		self.interact_with_door.connect(callable)
 		emit_signal("interact_with_door")
+		if self.is_connected("interact_with_door", callable):
+			self.disconnect("interact_with_door", callable)
 	if rad_to_deg(feet.rotation.z) > -30  and rad_to_deg(feet.rotation.z) < 30: # allow mouse movement after peek
 				allow_mouse = true	
 
@@ -118,8 +126,4 @@ func _physics_process(delta):
 		yume_animations.playback_speed = 1.35
 		#yume_animations.play("YumeWalk")
 		velocity.y = JUMP_VELOCITY
-
-
-
-
 
