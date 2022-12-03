@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://f5ofvasokqr5"]
+
+[ext_resource type="Texture2D" uid="uid://dqgfqhtvf6gah" path="res://assets/main/cutie_Color.png" id="1_7e8rn"]
+[ext_resource type="Script" path="res://assets/monsters/Floater/scripts/screenMods.gd" id="2_smm20"]
+[ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="3_7cbpy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5aole"]
+shader = ExtResource("3_7cbpy")
+shader_parameter/levels = 3
+shader_parameter/spread = 0.01
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="MainMenu"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
+visible = false
+
+[node name="screenMods" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_smm20")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="screenMods"]
+
+[node name="CutieColor" type="Sprite2D" parent="screenMods/CanvasLayer"]
+position = Vector2(572, 325)
+scale = Vector2(0.598958, 0.590741)
+texture = ExtResource("1_7e8rn")
+
+[node name="ColorRect" type="ColorRect" parent="screenMods/CanvasLayer"]
+material = SubResource("ShaderMaterial_5aole")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

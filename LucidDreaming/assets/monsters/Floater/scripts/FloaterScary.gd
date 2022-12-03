@@ -167,10 +167,8 @@ func _physics_process(delta):
 			speed = 2
 			pass
 		States.hunting: # zabija gracza jumpsacre itp
-			darken_the_world(0.01, 0.7)
 			observe(target_location)
-			if player_screen.material.get_shader_parameter("vignette_intensity") >= 100:
-				get_tree().change_scene_to_file(jumpscare_scene)
+			get_tree().change_scene_to_file(jumpscare_scene)
 			pass
 		States.seeking: # obraca sie szukajac gracza przez iles sekund i wraca do stanu patrol
 			follow(delta, target_location)

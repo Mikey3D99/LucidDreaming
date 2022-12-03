@@ -50,7 +50,6 @@ offset_bottom = 648.0
 [node name="CanvasLayer" type="CanvasLayer" parent="neck/feet/Camera3d/Sneak"]
 
 [node name="Vignette" type="ColorRect" parent="neck/feet/Camera3d/Sneak/CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_m0u3t")
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,9 +76,6 @@ grow_vertical = 2
 [node name="TEMP FLASHLIGHT" type="SpotLight3D" parent="neck/feet/Camera3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -0.204486, -0.259493)
 light_specular = 1.708
-spot_range = 27.611
-spot_attenuation = 0.466517
-spot_angle = 47.81
 spot_angle_attenuation = 1.74111
 
 [node name="GIGACHADYume" parent="neck/feet" instance=ExtResource("3_lf7co")]

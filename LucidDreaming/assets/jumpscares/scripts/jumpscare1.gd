@@ -9,6 +9,8 @@ extends Node3D
 @onready var sounds: Array
 @onready var main_scene = "res://rooms/startingRoom.tscn"
 @onready var timer = $Timer
+@onready var timer_flash = $Flash
+@onready var world = $WorldEnvironment
 
 
 func load_sounds(path, sounds_array):
@@ -54,6 +56,9 @@ func follow_path(delta, speed, model, where_to, offset, function):
 func _ready():
 	load_sounds("res://assets/jumpscares/Floater/Sounds/Scream/", sounds)
 	timer.set_wait_time(0.1)
+	timer_flash.set_wait_time(0.15)
+	timer_flash.start()
+	world.get_environment().set_bg_color(Color(1, 1, 1, 1))
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,6 +66,8 @@ func _process(delta):
 	animations.play("Armature|mixamocom|Layer0001")
 	animations.playback_speed = speed
 	follow_path(delta, speed, floater, marker, 3, 0)
+	if timer_flash.is_stopped():
+			world.get_environment().set_bg_color(Color(0, 0, 0, 1))
 	
 	pass
 #AudioStreamPlayer3D

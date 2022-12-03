@@ -89,7 +89,7 @@ func yume_running_sounds(choice, volume, pitch_h, audio):
 
 func _physics_process(delta):
 	#fps check
-	#print(Engine.get_frames_per_second())    
+	print(Engine.get_frames_per_second())    
 	
 	#vignette turned off when started
 	set_vignette(false)
