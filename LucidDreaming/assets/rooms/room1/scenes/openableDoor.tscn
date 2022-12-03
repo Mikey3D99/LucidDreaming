@@ -8,6 +8,8 @@ size = Vector3(25, 5, 15)
 
 [node name="openableDoor" type="Node3D"]
 script = ExtResource("1_v1gje")
+time_of_closing_opening = 0.8
+vol = 0.1
 
 [node name="LEFT" type="Node3D" parent="."]
 
@@ -42,5 +44,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.9348
 [node name="area" type="CollisionShape3D" parent="INTERACTION_RANGE"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.541866)
 shape = SubResource("BoxShape3D_ml5uj")
+
+[node name="DoorSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0129, 0)
+volume_db = 1.0
+unit_size = 1.0
+pitch_scale = 0.3
+max_distance = 7.0
 
 [connection signal="body_entered" from="INTERACTION_RANGE" to="." method="_on_interaction_range_body_entered"]
