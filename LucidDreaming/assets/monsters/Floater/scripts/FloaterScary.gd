@@ -87,7 +87,7 @@ func follow(delta, target):
 	if nav_agent.is_target_reachable():
 		var next_location = nav_agent.get_next_location()
 		var direction = global_position.direction_to(next_location)
-		global_position += direction * delta * speed
+		global_position += direction * delta * speed * 2
 
 		
 func walk_forward(delta):

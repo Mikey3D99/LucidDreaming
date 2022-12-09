@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc5mc5pmj0c83"]
+[gd_scene load_steps=11 format=3 uid="uid://dc5mc5pmj0c83"]
 
 [ext_resource type="Script" path="res://player/YumePlayer.gd" id="1_o26v8"]
+[ext_resource type="Shader" path="res://motion_blur/moblur_shader.gdshader" id="3_kwr60"]
 [ext_resource type="PackedScene" uid="uid://cweqvpxw37q6n" path="res://player/gigachad_yume.tscn" id="3_lf7co"]
 [ext_resource type="Shader" path="res://vingnette.gdshader" id="3_p8u53"]
 [ext_resource type="AudioStream" uid="uid://d1ax84j03ssty" path="res://player/running.wav" id="4_t3wn5"]
+[ext_resource type="AudioStream" uid="uid://diyccsvc0h0ka" path="res://assets/rooms/room1/scenes/ambient1.mp3" id="6_rmw3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m0u3t"]
 shader = ExtResource("3_p8u53")
@@ -11,11 +13,14 @@ shader_parameter/vignette_intensity = null
 shader_parameter/vignette_opacity = null
 shader_parameter/vignette_rgb = null
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkdxy"]
-shader = ExtResource("3_p8u53")
-shader_parameter/vignette_intensity = 0.0
-shader_parameter/vignette_opacity = 1.0
-shader_parameter/vignette_rgb = null
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_orgs3"]
+render_priority = 0
+shader = ExtResource("3_kwr60")
+shader_parameter/angular_velocity = null
+shader_parameter/intensity = null
+shader_parameter/iteration_count = null
+shader_parameter/linear_velocity = null
+shader_parameter/startRadius = null
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxvd5"]
 radius = 0.2
@@ -66,12 +71,13 @@ offset_bottom = 648.0
 [node name="CanvasLayer" type="CanvasLayer" parent="neck/feet/Camera3d/Jumpscare"]
 
 [node name="Vignette" type="ColorRect" parent="neck/feet/Camera3d/Jumpscare/CanvasLayer"]
-material = SubResource("ShaderMaterial_fkdxy")
+material = SubResource("ShaderMaterial_orgs3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TEMP FLASHLIGHT" type="SpotLight3D" parent="neck/feet/Camera3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, -0.204486, -0.259493)
@@ -222,6 +228,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00417185, 0.899864, 0)
 shape = SubResource("CapsuleShape3D_sqoj8")
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rmw3c")
+volume_db = 1.0
 
 [connection signal="body_entered" from="neck/feet/WallDetector" to="." method="_on_wall_detector_body_entered"]
 [connection signal="body_exited" from="neck/feet/WallDetector" to="." method="_on_wall_detector_body_exited"]

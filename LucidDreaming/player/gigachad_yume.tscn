@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cweqvpxw37q6n"]
+[gd_scene load_steps=4 format=3 uid="uid://cweqvpxw37q6n"]
 
 [ext_resource type="PackedScene" uid="uid://bg1m1wfcgf0pp" path="res://player/GIGACHADYume.glb" id="1_r8sye"]
+[ext_resource type="Texture2D" uid="uid://dmckykx4drawn" path="res://player/Body_Tex.png" id="2_vkvc1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thwf6"]
+albedo_texture = ExtResource("2_vkvc1")
+metallic = 1.0
+metallic_specular = 1.0
 
 [node name="GIGACHADYume" instance=ExtResource("1_r8sye")]
+
+[node name="body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_thwf6")

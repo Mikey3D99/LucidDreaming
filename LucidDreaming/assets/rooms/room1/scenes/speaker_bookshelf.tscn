@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://8yeebeibfql6"]
+
+[ext_resource type="PackedScene" uid="uid://btjfkrkj7kkxf" path="res://assets/rooms/room1/models/pcStuff/speaker_bookshelf.glb" id="1_0hy1m"]
+
+[node name="speaker_bookshelf" instance=ExtResource("1_0hy1m")]

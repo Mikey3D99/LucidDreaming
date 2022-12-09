@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://530opiiwp8h3"]
+
+[ext_resource type="PackedScene" uid="uid://1u4ukcxe1flg" path="res://tatami.tscn" id="1_0sgfk"]
+[ext_resource type="Script" path="res://chunk.gd" id="1_ay2j3"]
+[ext_resource type="PackedScene" uid="uid://bekdhp4wnb6cs" path="res://assets/rooms/room1/scenes/anothawall.tscn" id="2_fptmt"]
+
+[node name="CHUNK" type="Node3D"]
+script = ExtResource("1_ay2j3")
+
+[node name="floor" type="Node3D" parent="."]
+
+[node name="tatami" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.0991716, 0, -0.0208315)
+
+[node name="tatami2" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.0991716, 0, -1.26821)
+
+[node name="tatami3" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.0991716, 0, 2.65031)
+
+[node name="tatami4" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0.0991716, 0, 1.30313)
+
+[node name="tatami6" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-8.30516e-09, 0, 0.19, 0, 0.19, 0, -0.19, 0, -8.30516e-09, -1.43951, 0, 1.35461)
+
+[node name="tatami7" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -1.44754, 0, -1.26967)
+
+[node name="tatami8" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -1.43951, 0, 1.2817)
+
+[node name="tatami9" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -1.44754, 0, -1.26967)
+
+[node name="tatami10" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, -1.43951, 0, 1.2817)
+
+[node name="tatami12" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-8.30516e-09, 0, 0.19, 0, 0.19, 0, -0.19, 0, -8.30516e-09, 2.79753, 0, -1.31925)
+
+[node name="tatami13" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-8.30516e-09, 0, 0.19, 0, 0.19, 0, -0.19, 0, -8.30516e-09, 2.80557, 0, 1.38087)
+
+[node name="tatami11" parent="floor" instance=ExtResource("1_0sgfk")]
+transform = Transform3D(-8.30516e-09, 0, 0.19, 0, 0.19, 0, -0.19, 0, -8.30516e-09, -1.44754, 0, -1.2905)
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="WEST" type="Node3D" parent="walls"]
+
+[node name="anothawall" parent="walls/WEST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, -2.55053, 1.74793, 1.80594)
+
+[node name="anothawall2" parent="walls/WEST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, -2.55053, 1.74793, -0.00657122)
+
+[node name="anothawall3" parent="walls/WEST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, -2.55053, 1.74793, -1.73003)
+
+[node name="EAST" type="Node3D" parent="walls"]
+
+[node name="anothawall4" parent="walls/EAST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.87349, 1.74793, 1.80594)
+
+[node name="anothawall5" parent="walls/EAST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.87349, 1.74793, -0.00657122)
+
+[node name="anothawall6" parent="walls/EAST" instance=ExtResource("2_fptmt")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.87349, 1.74793, -1.73003)
+
+[node name="NORTH" type="Node3D" parent="walls"]
+
+[node name="anothawall10" parent="walls/NORTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -1.62976, 1.74793, -2.61257)
+
+[node name="anothawall11" parent="walls/NORTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.180434, 1.74793, -2.61257)
+
+[node name="anothawall12" parent="walls/NORTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 1.99063, 1.74793, -2.61257)
+
+[node name="SOUTH" type="Node3D" parent="walls"]
+
+[node name="anothawall7" parent="walls/SOUTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -1.62976, 1.74793, 2.67657)
+
+[node name="anothawall8" parent="walls/SOUTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0.180434, 1.74793, 2.67657)
+
+[node name="anothawall9" parent="walls/SOUTH" instance=ExtResource("2_fptmt")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 1.99063, 1.74793, 2.67657)

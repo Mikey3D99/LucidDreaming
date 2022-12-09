@@ -159,7 +159,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	# handle audio
-	yume_running_sounds("res://player/ambient.wav", 0.01, 0.4, ambient)
+	yume_running_sounds("res://player/ambient.wav", 0.1, 0.4, ambient)
 	match currentState:
 		movementAudio.running:
 			yume_running_sounds("res://player/running.wav", 0.3, pitch, yumeMovementAudio)
