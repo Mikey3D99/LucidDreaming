@@ -1,6 +1,6 @@
 extends Node
-@export var width = 7
-@export var height = 5
+@export var width = 10
+@export var height = 10
 @export var cellObject = preload("res://assets/rooms/room1/scenes/anothawall.tscn")
 @export var space_between : float
 var cells : Array
@@ -107,19 +107,24 @@ func chooseRandomUnvisitedNeighbour(currentRow, currentCol):
 func removeWallBetweenCurrentAndChosen(currentCell, chosen):
 	var currObject = cells[currentCell[0]][currentCell[1]][7]
 	var chosenObject = cells[chosen[0]][chosen[1]][7]
-	print(currentCell, chosen)
+	#print(currentCell, chosen)
 	if chosen[0] - currentCell[0] == 1:
+		cells[chosen[0]][chosen[1]][2] = false
 		currObject.deleteWall(currObject.SOUTH)
 		chosenObject.deleteWall(chosenObject.NORTH)
+		
 	elif chosen[0] - currentCell[0] == -1:
 		currObject.deleteWall(currObject.NORTH)
+		cells[chosen[0]][chosen[1]][3] = false
 		chosenObject.deleteWall(chosenObject.SOUTH)
 	elif chosen[1] - currentCell[1] == 1:
 		currObject.deleteWall(currObject.EAST)
 		chosenObject.deleteWall(chosenObject.WEST)
+		cells[chosen[0]][chosen[1]][5] = false
 	elif chosen[1] - currentCell[1] == -1:
 		currObject.deleteWall(currObject.WEST)
 		chosenObject.deleteWall(chosenObject.EAST)
+		cells[currentCell[0]][currentCell[1]][5] = false
 	
 func generateMaze():
 	var currentRow = 0
@@ -140,12 +145,30 @@ func generateMaze():
 			cells[nextIndices[0]][nextIndices[1]][6] = true
 			backTrackStack.push_front(nextIndices)
 			
+func probability(p):
+	var rN = randi() % 100
+	return  rN < p * 100
 			
+func addDoors(p):
+	for row in cells:
+		for cell in row:
+			for indx in range(2, 6):
+				if cell[indx] == false and probability(p):
+					if indx == 2: #north
+						cell[7].addDoor(cell[7].NORTH)
+					if indx == 3: #south
+						cell[7].addDoor(cell[7].SOUTH)
+					if indx == 4: #east
+						cell[7].addDoor(cell[7].EAST)
+					if indx == 5: #west
+						cell[7].addDoor(cell[7].WEST)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populateCells()
 	spawnCellObjects()
 	generateMaze()
+	addDoors(0.25)
+	
 	#print(hasUnvisitedNeighbours(0, 0))
 	pass # Replace with function body.
 

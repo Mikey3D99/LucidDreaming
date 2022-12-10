@@ -8,7 +8,7 @@
 [node name="MazeGenerator" type="Node" parent="."]
 script = ExtResource("1_k8imq")
 cellObject = ExtResource("2_womye")
-space_between = 5.7
+space_between = 5.35
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 19.089, 30, 15.7078)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 28.91, 40, 26.521)

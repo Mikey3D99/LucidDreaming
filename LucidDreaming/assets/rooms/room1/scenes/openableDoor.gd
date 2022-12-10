@@ -65,6 +65,7 @@ func _physics_process(_delta):
 			
 func _on_interaction_range_body_entered(body):
 	if body.is_in_group("Player"):
+		#print("WYKRYWA")
 		emit_signal("player_near_door", self)
 
 

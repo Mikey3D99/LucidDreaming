@@ -86,7 +86,6 @@ func yume_running_sounds(choice, volume, pitch_h, audio):
 		audio.stream = sfx
 		audio.set_volume_db(linear_to_db(volume))
 		audio.play()
-
 func _physics_process(delta):
 	#fps check
 	print(Engine.get_frames_per_second())    

@@ -177,10 +177,3 @@ func _physics_process(delta):
 	#var pos = $"../YumePlayer".get_position()
 	#shadow_hunt(delta)
 
-
-
-
-
-
-
-
